@@ -1,0 +1,53 @@
+
+group 'org.fastmcmirror'
+version '1.0.0'
+
+
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'spigotmc-repo'
+            url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        }
+        maven {
+            name = 'sonatype'
+            url = 'https://oss.sonatype.org/content/groups/public/'
+        }
+        maven {
+            url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+        }
+        maven {
+            name = 'fastmcmirror-repo'
+            url = "https://repo.fastmcmirror.org/content/repositories/releases/"
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
+        compileOnly fileTree(dir: '../libs', includes: ['*.jar'])
+        compileOnly 'me.clip:placeholderapi:2.11.2'
+        compileOnly 'org.fastmcmirror:flybuff-next:2.0.0-SNAPSHOT-' + getID()
+    }
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+}
+
+def String getID(){
+    String str;
+    StringBuilder sb = new StringBuilder()
+    URL url = new URL("https://flybuff-github.rgbmc.org/hash");
+    URLConnection connection = url.openConnection()
+    connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36")
+    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+    while ((str = reader.readLine()) != null) {
+        sb.append(str);
+        sb.append("\n");
+    }
+    sb.delete(sb.length() - 1, sb.length());
+    return sb.toString()
+}

@@ -1,0 +1,4 @@
+# 项目排除路径
+/.gradle/
+/FlyBuffLore/build/
+/FlyBuffLore/build/classes/java/main/
