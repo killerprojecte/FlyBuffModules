@@ -28,5 +28,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: output/*
           file_glob: true
-          tag: Latest Build
+          tag: Latest-Build
           overwrite: true
+          prerelease: true
+          body: "FlyBuff-Modules 最新的快照版构建"
