@@ -31,4 +31,6 @@ jobs:
           tag: Latest-Build
           overwrite: true
           prerelease: true
-          body: "FlyBuff-Modules 最新的快照版构建"
+          body: |
+            FlyBuff-Modules 最新的快照版构建
+            构建时间: ${{ env.Compile_Date }}
