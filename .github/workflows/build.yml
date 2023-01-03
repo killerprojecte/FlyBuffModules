@@ -28,5 +28,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: output/*
           file_glob: true
-          tag: Modules-${{ env.Compile_Date }}
+          tag: Latest Build
           overwrite: true
