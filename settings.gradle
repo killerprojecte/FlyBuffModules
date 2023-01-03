@@ -6,4 +6,6 @@ include 'FlyBuffAttributes'
 include 'FlyBuffItemFlags'
 include 'FlyBuffMessages'
 include 'FlyBuffBlacklist'
+include 'FlyBuffMythicMobs4'
+include 'FlyBuffMythicMobs5'
 

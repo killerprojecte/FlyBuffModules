@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.fastmcmirror'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://mvn.lumine.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'io.lumine:Mythic-Dist:4.14.2'
+}
+
+test {
+    useJUnitPlatform()
+}
