@@ -35,6 +35,10 @@ subprojects {
         options.encoding = 'UTF-8'
     }
 
+    jar {
+        destinationDirectory.set(file("$rootProject.projectDir/output"))
+    }
+
 }
 
 def String getID(){
