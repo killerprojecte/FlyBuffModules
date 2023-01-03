@@ -31,6 +31,16 @@ subprojects {
         compileOnly 'org.fastmcmirror:flybuff-next:2.0.0-SNAPSHOT-' + getID()
     }
 
+    def targetJavaVersion = 17
+    java {
+        def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+        if (JavaVersion.current() < javaVersion) {
+            toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+        }
+    }
+
     compileJava {
         if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
             options.release = 8
